@@ -51,27 +51,26 @@
 # end
 
 
-
+def fizzbuzz(my_num)
+    if my_num % 5 == 0 && my_num % 3 == 0
+        "fizzbuzz"
+    elsif my_num % 3 == 0
+        "fizz"
+    elsif my_num % 5 ==0
+        "buzz"
+    end
+end
 
 
 # print numbers 1 to 100 inclusive
 # name the number as a variable
 get "/fizzbuzz" do
-    my_string = ""
 
-    for my_number in 1..100 do
-        
-        if my_number % 5 == 0  
-            "buzz"
-        elsif my_number % 3 == 0 
-            "fizz"
-        end
-        my_string = my_string + "#{my} <br/>"   
-    end
-
-
-    return my_string
-
+fizzbuzz(12)
+   
 end
+
+
+    
 
 
