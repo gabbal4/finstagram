@@ -1,57 +1,83 @@
-def humanized_time_ago(time_ago_in_minutes)
-    if time_ago_in_minutes >= 60
-        "#{time_ago_in_minutes / 60} hours ago"
+# def yellowpager(text)
+#     dictionary = {
+#         a: '2',
+#         b: '2',
+#         c: '2',
+#         d: '3',
+#         e: '3',
+#         f: '3',
+#         g: '4',
+#         h: '4',
+#         i: '4',
+#         j: '5',
+#         k: '5',
+#         l: '5',
+#         m: '6',
+#         n: '6',
+#         o: '6',
+#         p: '7',
+#         q: '7',
+#         r: '7',
+#         s: '7',
+#         t: '8',
+#         u: '8',
+#         v: '8',
+#         w: '9',
+#         x: '9',
+#         y: '9',
+#         z: '9'
+#     }
+#     characters = {}
+#     number = ''
+#     if 
+#     puts number
+# end
+
+# turn string into an array of characters
+# loop through characters
+# chacters.each do |c|
+# number += dictionary[:"#{c}"]
+# end loop
+
+def letter_to_number(letter)
+    case letter
+    when "A", "B", "C"
+        2
+    when "D", "E", "F"
+        3
+    when "G", "H", "I"
+        4
+    when "J", "K", "L"
+        5
+    when "M", "N", "O"
+        6
+    when "P", "Q", "R", "S"
+        7
+    when "T", "U", "V"
+        8
+    when "W", "X", "Y", "Z"
+        9
+    end 
+end
+
+def word_to_num(word)
+    if word.length == 10
+        numbers = ""
+        word.split('').each do |letter|
+            numbers = numbers + letter_to_number(letter).to_s
+        end
+        numbers
     else 
-        "#{time_ago_in_minutes} minutes ago"
+        puts "false"
     end
 end
 
-get '/' do
-   @finstagram_post_shark = {
-        username: "sharky_j",
-        avatar_url: "http://naserca.com/images/sharky_j.jpg",
-        photo_url: "http://naserca.com/images/shark.jpg",
-        humanized_time_ago: humanized_time_ago(15),
-        like_count: 0,
-        comment_count: 1,
-        comments: [{
-            username: "sharky_j",
-            text: "Out for the long weekend... too embarrassed to show y'all the beach bod!"
-        }]
-    }
+get '/' do   
 
-    @finstagram_post_whale = {
-        username: "kirk_whalum",
-        avatar_url: "http://naserca.com/images/kirk_whalum.jpg",
-        photo_url: "http://naserca.com/images/whale.jpg",
-        humanized_time_ago: humanized_time_ago(65),
-        like_count: 0,
-        comment_count: 1,
-        comments: [{
-            username: "kirk_whalum",
-            text: "#weekendvibes"
-        }]
-    }
+    word_to_num("HELLOWORLD")
 
-    @finstagram_post_marlin = {
-        username: "marlin_peppa",
-        avatar_url: "http://naserca.com/images/marlin_peppa.jpg",
-        photo_url: "http://naserca.com/images/marlin.jpg",
-        humanized_time_ago: humanized_time_ago(190),
-        like_count: 0,
-        comment_count: 1,
-        comments: [{
-            username: "marlin_peppa",
-            text: "lunchtime! ;)"
-        }]
-    }
-
-   @finstagram_posts = [@finstagram_post_shark, @finstagram_post_whale, @finstagram_post_marlin]
-    erb(:index)
 end
-
-
-# def fizzbuzz(my_num)
+def fizzbuzz(my_num)
 #     if my_num % 5 == 0 && my_num % 3 == 0
 #         "fizzbuzz"
 #     elsif my_num % 3 == 0
